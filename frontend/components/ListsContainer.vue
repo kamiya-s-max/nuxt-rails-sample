@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-list-item v-for="list in this.$patent.lists" :key="list.id" two-line>
+    <v-list-item v-for="list in this.$parent.lists" :key="list.id" two-line>
       <v-list-item-content>
         <h2>{{ list.title }}</h2>
       </v-list-item-content>
@@ -18,13 +18,11 @@
 export default {
   methods: {
     removeList(id) {
-      this.$axios
-        .delete(`/api/v1/lists/${id}`)
-        .then((res) => {
-          const lists = this.$parent.lists.filter((l) => l.id !== id)
-          this.$parent.lists = lists
-        })
-    }
-  }
+      this.$axios.delete(`/api/v1/lists/${id}`).then((res) => {
+        const lists = this.$parent.lists.filter((l) => l.id !== id)
+        this.$parent.lists = lists
+      })
+    },
+  },
 }
 </script>

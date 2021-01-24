@@ -19,20 +19,20 @@ export default {
   data() {
     return {
       title: '',
-      excerpt: ''
+      excerpt: '',
     }
   },
   methods: {
     addList() {
       this.$axios
-        .post('/api/v1/lists', {title: this.title, excerpt: this.excerpt})
+        .post('/api/v1/lists', { title: this.title, excerpt: this.excerpt })
         .then((res) => {
           this.$parent.lists.push(res)
         })
         .catch((err) => {
           console.log(err)
         })
-    }
-  }
+    },
+  },
 }
 </script>

@@ -22,7 +22,7 @@ export default {
     list: {
       type: Object,
       default: null,
-    }
+    },
   },
   data() {
     return {
@@ -39,7 +39,7 @@ export default {
           excerpt: this.excerpt,
         })
         .then((res) => {
-          const list = this.$parent.lists.map((l) => {
+          const lists = this.$parent.lists.map((l) => {
             return l.id === this.id ? res : l
           })
           this.$parent.lists = lists
@@ -48,7 +48,7 @@ export default {
         .catch((err) => {
           console.log(err)
         })
-    }
-  }
+    },
+  },
 }
 </script>

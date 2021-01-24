@@ -24,18 +24,18 @@ export default {
   data() {
     return {
       lists: [],
-      editTargetList: ''
+      editTargetList: '',
     }
   },
-  async asyncData({$axios}) {
+  async asyncData({ $axios }) {
     const data = await $axios.$get('/api/v1/lists')
     return { lists: data }
   },
   methods: {
     editingList(list = '') {
       this.editTargetList = list
-    }
-  }
+    },
+  },
 }
 </script>
 
